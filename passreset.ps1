@@ -5,7 +5,9 @@ Function SearchUser {
         $users_grid.Rows.Clear()
         if ($find_str.Text.Length -ne 0){
         $find_qry_str = 'mail -like "*' + $find_str.Text + '*"' + " -OR " + 'SamAccountName -like "*' + $find_str.Text + '*" -OR ' +'Name -like "*' + $find_str.Text + '*"'
-        Get-ADUser -Filter $find_qry_str -Properties Name,SamAccountName, EmailAddress,PasswordLastSet | foreach{ $users_grid.Rows.Add($_.Name,$_.SamAccountName,$_.EmailAddress,(($_.PasswordLastSet).AddMonths(2)).ToString('dd.MM.yy HH:mm'))}
+        Get-ADUser -Filter $find_qry_str -Properties Name,SamAccountName, EmailAddress,PasswordLastSet | foreach { 
+	$users_grid.Rows.Add($_.Name,$_.SamAccountName,$_.EmailAddress,(($_.PasswordLastSet).AddMonths(2)).ToString('dd.MM.yy HH:mm'))
+	}
         } else { $Output = $wshell.Popup("Password not entered")}
         } 
         Catch
