@@ -99,10 +99,9 @@ $main_form.Controls.Add($set_pass_btn)
 $chg_pass = New-Object System.Windows.Forms.CheckBox
 $chg_pass.Text = 'Change at next logon'
 $chg_pass.Size = '75, 20'
-$chg_pass.Location = New-Object System.Drawing.Point(400,50)
-$chg_pass.Size = '120,25'
+$chg_pass.Location = New-Object System.Drawing.Point(280,40)
+$chg_pass.Size = '150,25'
 $chg_pass.Checked = $true
-$chg_pass.Visible = $false
 $main_form.Controls.Add($chg_pass)
 
 
